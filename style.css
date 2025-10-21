@@ -1,0 +1,140 @@
+:root {
+  --color: #003809;
+  --color2: #001a12;
+  --back: #e6ede6;
+}
+
+* {
+  margin: 0;
+  box-sizing: border-box;
+  scroll-margin-top: 100px;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  width: 100vw;
+  display: flex;
+}
+
+main {
+  width: 100%;
+  max-width: 820px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+aside {
+  background-color: var(--back);
+  color: var(--color);
+  width: 20rem;
+  height: 18rem;
+  margin: 2rem;
+  padding: 2rem;
+  border-radius: 0.5rem;
+  position: sticky;
+  top: 50%;
+  translate: 0 -50%;
+  display: none;
+}
+aside a {
+  color: var(--color2);
+  text-decoration: none;
+}
+
+h1 {
+  font-family: sans-serif;
+  font-size: 3rem;
+  color: #003809;
+  margin: 1rem 0;
+  text-shadow: 2px 2px 4px #0003;
+}
+
+img {
+  width: 100%;
+}
+
+.subtitle {
+  font-family: sans-serif;
+  color: var(--color);
+}
+.subtitle span {
+  color: var(--color2);
+}
+h2.subtitle {
+  text-decoration: 2px underline;
+}
+
+.code-block {
+  background: #222;
+  color: #ddd;
+  width: fit-content;
+  margin-top: 1rem;
+  padding: 0.5rem 1rem;
+  border-radius: 0.2rem;
+}
+.code-block__text {
+  color: #34e943;
+
+}
+.code-block__symbol {
+  font-weight: bold;
+  color: #fff;
+  text-shadow: 0 0 2px currentColor;
+}
+.code-block__command {
+  font-weight: bold;
+  color: #ff0c3d;
+}
+.code-block__comment {
+  color: #0cf;
+}
+
+.text {
+  font-family: sans-serif;
+  margin-top: 1rem;
+}
+
+.reflexion {
+  font-family: sans-serif;
+  background-color: var(--back);
+  margin: 2rem 0;
+  padding: 2rem;
+  border-radius: 0.4rem;
+}
+.reflexion strong {
+  font-size: 1.2rem;
+  text-wrap: pretty;
+  color: var(--color);
+  display: block;
+}
+.reflexion p {
+  color: var(--color2);
+  margin-left: 2rem;
+}
+strong.reflexion__title {
+  font-size: 2rem;
+  color: var(--color);
+}
+
+#logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  position: fixed;
+  top: 2rem;
+  right: 5rem;
+}
+#logo img {
+  width: 30px;
+}
+#logo strong {
+  font-size: 1.08rem;
+  display: flex;
+  flex-direction: column;
+}
+#logo strong span {
+  font-size: 1rem;
+}
