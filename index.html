@@ -1,178 +1,283 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="style.css">
-  <title>Laboratorio 2 - Linux</title>
+  <title>Linux: Laboratiro 2</title>
 </head>
-
 <body>
-  <div id="logo">
-    <img src="images/logo_unicor.png" alt="Logotipo de la Univerdad de Córdoba">
-    <strong>Univerdad<span>de Córdoba</span></strong>
+  <div class="container">
+    <main>
+      <h1 id="act1">ACTIVIDAD 1</h1>
+      <br>
+      <strong class="subtitle"><span>Tarea 1 -</span> Filtrado y redireccionamiento</strong>
+      <br>
+      <p class="code-block">
+        <span class="code-block__command">grep</span>
+        <span class="code-block__text">"error"</span>
+        <span>/var/log/syslog</span>
+        <span class="code-block__symbol">></span>
+        <span>errores.log</span>
+      </p>
+      <br>
+      <strong class="subtitle"><span>Tarea 2 -</span> Procedimiento con Pipelines</strong>
+      <br>
+      <p class="code-block">
+        <span class="code-block__command">cat</span>
+        <span>errores.log</span>
+        <span class="code-block__symbol">|</span>
+        <span class="code-block__command">wc</span>
+        <b>-l</b>
+      </p>
+      <br>
+      <strong class="subtitle"><span>Tarea 3 -</span> Orden y filtrado avanzado</strong>
+      <br>
+      <p class="code-block">
+        <span class="code-block__command">grep</span>
+        <span class="code-block__text">"fecha_actual"</span>
+        <span>errores.log</span>
+        <span class="code-block__symbol">|</span>
+        <span class="code-block__command">sort</span>
+        <span class="code-block__symbol">></span>
+        <span>errores_ordenados.log</span>
+      </p>
+      <img src="images/captura_1.png" alt="Captura de una terminal de Linux con líneas de comandos.">
+      <br>
+      <div class="reflexion">
+        <strong id="ref1" class="reflexion__title">Reflexión</strong>
+        <br>
+        <strong>1. ¿Qué comando fue más útil para esta tarea?</strong>
+        <p>El comando más útil fue <b>grep</b>. Nos permitió filtrar rápidamente los datos.</p>
+        <br>
+        <strong>2. ¿Cómo facilita el redireccionamiento y el uso de pipelines el procesamiento de datos en logs
+          grandes?</strong>
+        <p>Facilita de una manera abismal. Evita crear multiples archivos temporales y todo el procesamiento se puede
+          hacer en una sola línea de código, tan solo con escribir un carárter más.</p>
+      </div>
+      <br>
+      <h1 id="act2">ACTIVIDAD 2</h1>
+      <br>
+      <strong class="subtitle"><span>Tarea 1 -</span> Actualización de la lista de paquetes</strong>
+      <br>
+      <p class="code-block">
+        <span class="code-block__command">sudo</span>
+        <span>apt</span>
+        <span class="code-block__command">update</span>
+      </p>
+      <img src="images/captura_2.png" alt="Captura de una terminal de Linux con líneas de comandos.">
+      <p class="code-block">
+        <span class="code-block__comment"># Como hay paquetes por actualizar</span>
+        <br>
+        <span class="code-block__command">sudo</span>
+        <span>apt</span>
+        <span class="code-block__command">upgrade</span>
+      </p>
+      <img src="images/captura_3.png" alt="Captura de una terminal de Linux con líneas de comandos.">
+      <br>
+      <br>
+      <br>
+      <strong class="subtitle"><span>Tarea 2 -</span> Instalación de paquetes</strong>
+      <p class="code-block">
+        <span class="code-block__command">sudo</span>
+        <span>apt</span>
+        <span class="code-block__command">install</span>
+        <span>vim</span>
+      </p>
+      <img src="images/captura_4.png" alt="Captura de una terminal de Linux con líneas de comandos.">
+      <p class="code-block">
+        <span>vim</span>
+        <span class="code-block__command">--version</span>
+        <span class="code-block__comment"># verificar instalación</span>
+      </p>
+      <img src="images/captura_5.png" alt="Captura de una terminal de Linux con líneas de comandos.">
+      <br>
+      <br>
+      <br>
+      <strong class="subtitle"><span>Tarea 3 -</span> Eliminacón de paquetes</strong>
+      <br>
+      <p class="code-block">
+        <span class="code-block__command">sudo</span>
+        <span>apt</span>
+        <span class="code-block__command">remove</span>
+        <span>vim</span>
+      </p>
+      <img src="images/captura_6.png" alt="Captura de una terminal de Linux con líneas de comandos.">
+      <p class="code-block">
+        <span class="code-block__comment"># Borramos el paquete innecesario</span>
+        <br>
+        <span class="code-block__command">sudo</span>
+        <span>apt</span>
+        <span class="code-block__command">autoremove</span>
+      </p>
+      <img src="images/captura_7.png" alt="Captura de una terminal de Linux con líneas de comandos.">
+      <br>
+      <br>
+      <br>
+      <strong class="subtitle"><span>Tarea 4 -</span> Instalación de herramientas específicas</strong>
+      <br>
+      <p class="code-block">
+        <span>apt</span>
+        <span class="code-block__command">install</span>
+        <span>curl</span>
+        <span class="code-block__command">curl</span>
+        <b>-0</b>
+        <span>http://ejemplo.com/archivo.txt</span>
+      </p>
+      <br>
+      <div class="reflexion">
+        <strong id="ref2" class="reflexion__title">Reflexión</strong>
+        <br>
+        <strong>1. ¿Por qué es importante actualizar una lista de paquetes antes de una instalación?</strong>
+        <br>
+        <p>Para mantener el sistema actualizado y seguro, evitar errores con la instalación y porque así nos puede
+          funcionar mejor.</p>
+        <br>
+        <strong>2. ¿Qué ventajas tiene desinstalar paquetes innecesarios del sistema?</strong>
+        <br>
+        <p>Nos ahorra espacio, nos mantiene libre de posibles amenazas y mantiene limpio nuestro sistema.</p>
+      </div>
+      <h1 id="act2">OTROS COMANDOS</h1>
+      <br>
+      <h2 class="subtitle" id="altGrep">ALTERNATIVAS A GREP</h2>
+      <br>
+      <strong class="subtitle" id="altGrep1">awk</strong>
+      <p class="text">Awk puede filtrar, formatear y procesar columnas.<br>Recibe como argumento la palabra o patrón que
+        deseas buscar entre medio de barras inclinadas "/".</p>
+      <p class="code-block">
+        <span class="code-block__command">awk</span>
+        <span class="code-block__text">/Ana/</span>
+        <span>usuarios.txt</span>
+      </p>
+      <p class="text">Puedes filtar por columnas utilizando '{print $1}' como argumento.<br>Puede ser '{print $2}' para
+        la segunda columna (palabra) de cada línea y así sucesivamente.</p>
+      <p class="code-block">
+        <span class="code-block__command">awk</span>
+        <span class="code-block__text">'{print $1}'</span>
+        <span>usuarios.txt</span>
+      </p>
+      <img src="images/captura_8.png" alt="Captura de una terminal de Linux con líneas de comandos.">
+      <br>
+      <br>
+      <br>
+      <strong class="subtitle" id="altGrep2">sed</strong>
+      <p class="text">En sed el parametro <b>-n</b> evita que se impriman todas las líneas. Al igual que <b>awk</b> le
+        pasamos la palabra que deseamos buscar entre barras, y le agregamos "p" al final para indicar que sí se muestre
+        la línea que contenta dicha palabra (print Ana).</p>
+      <p class="code-block">
+        <span class="code-block__command">sed</span>
+        <b>-n</b>
+        <span class="code-block__text">'/Ana/p'</span>
+        <span>usuarios.txt</span>
+      </p>
+      <p class="text">Por defecto, sed lee cada línea del archivo y la imprime automáticamente, incluso si tú no le
+        dices que lo haga.</p>
+      <p class="code-block">
+        <span class="code-block__command">sed</span>
+        <span class="code-block__text">'s/a/A'</span>
+        <span>usuarios.txt</span>
+      </p>
+      <p class="text">Esto reemplaza la primera “a” por “A” en cada línea, y luego imprime todas las líneas, incluso las
+        que no cambió.</p>
+      <img src="images/captura_9.png" alt="Captura de una terminal de Linux con líneas de comandos.">
+      <br>
+      <br>
+      <br>
+      <h2 class="subtitle" id="altCat"><span>ALTERNATIVAS CAT</h2>
+      <br>
+      <strong class="subtitle" id="altCat1">less</strong>
+      <p class="code-block">
+        <span class="code-block__command">less</span>
+        <span>usuarios.txt</span>
+      </p>
+      <p class="text">Less muestra el contenido del archivo en forma de páginas, así si el archivo es muy grande lo
+        divide y puedes navegar por el contenido pulsando:<br><br><strong>Espacio</strong> - Página
+        siguiente<br><strong>b</strong> - Página anterior<br><strong>q</strong> - Salir</p>
+      <img src="images/captura_10.png" alt="Captura de una terminal de Linux con líneas de comandos.">
+      <br>
+      <br>
+      <br>
+      <strong class="subtitle" id="altCat2">more</strong>
+      <p class="code-block">
+        <span class="code-block__command">more</span>
+        <span>usuarios.txt</span>
+      </p>
+      <p class="text">
+        <span>Es similar a <b>less</b>, pero más básico. Muestra el archivo una pantalla a la vez.</span>
+        <br><br>
+        <strong>Espacio</strong> - Siguiente
+        <br>
+        <strong>q</strong> - Salir
+      </p>
+      <p class="text">Si el archivo es pequeño, se comporta prácticamente igual que cat.</p>
+      <img src="images/captura_11.png" alt="Captura de una terminal de Linux con líneas de comandos.">
+      <br>
+      <br>
+      <br>
+      <h2 class="subtitle" id="altWc"><span>ALTERNATIVAS WC -l</h2>
+      <br>
+      <strong class="subtitle" id="altWc1">awk</strong>
+      <p class="code-block">
+        <span class="code-block__command">awk</span>
+        <span class="code-block__text">'END {print NR}'</span>
+        <span>usuarios.txt</span>
+      </p>
+      <p class="text">
+        <span><strong>NR</strong> Es una variable interna de awk que cuenta el número de registros (líneas)
+          procesadas.</span>
+        <br><br>
+        <span><strong>END {...}</strong> Indica que el bloque se ejecutará al final del archivo, es decir lo que está
+          dentro de paréntesis.</span>
+        <br><br>
+        <span><strong>print NR</strong> Imprime en número totoal de líneas.</span>
+      </p>
+      <img src="images/captura_12.png" alt="Captura de una terminal de Linux con líneas de comandos.">
+      <br>
+      <br>
+      <br>
+      <strong class="subtitle" id="altWc2">sed</strong>
+      <p class="code-block">
+        <span class="code-block__command">sed</span>
+        <b>-n</b>
+        <span class="code-block__text">'$='</span>
+        <span>usuarios.txt</span>
+      </p>
+      <p class="text">
+        <strong>-n</strong> No imprime las líneas del archivo.
+        <br><br>
+        <strong>'$='</strong> Cuando llega a la última línea ($), imprime su número (=).
+      </p>
+      <img src="images/captura_13.png" alt="Captura de una terminal de Linux con líneas de comandos.">
+      <br>
+      <br>
+      <br>
+      <footer>
+        <span>Autor · @An8Dres <b>(Andres Petro)</b> 2025</span>
+      </footer>
+    </main>
+    <aside>
+      <div id="logo">
+        <img src="images/logo_unicor.png" alt="Logotipo de la Univerdad de Córdoba">
+        <strong>Univerdad<span>de Córdoba</span></strong>
+      </div>
+      <nav>
+        <a href="#act1" class="nav__link">ACTIVIDAD 1</a>
+        <a href="#ref1" class="nav__sublink">REFLEXIÓN</a>
+        <a href="#act2" class="nav__link">ACTIVIDAD 2</a>
+        <a href="#ref2" class="nav__sublink">REFLEXIÓN</a>
+      </nav>
+      <nav>
+        <a href="#altGrep" class="nav__link">ALTERNATIVAS A GREP</a>
+        <a href="#altGrep1" class="nav__sublink">AWK</a>
+        <a href="#altGrep1" class="nav__sublink">SED</a>
+        <a href="#altCat" class="nav__link">ALTERNATIVAS A CAT</a>
+        <a href="#altCat1" class="nav__sublink">LESS</a>
+        <a href="#altCat2" class="nav__sublink">MORE</a>
+        <a href="#altWc" class="nav__link">ALTERNATIVAS A WC -l</a>
+        <a href="#altWc1" class="nav__sublink">AWK</a>
+        <a href="#altWc2" class="nav__sublink">SED</a>
+      </nav>
+    </aside>
   </div>
-  <main>
-    <h1 id="act1">ACTIVIDAD 1</h1>
-    <br>
-    <strong class="subtitle"><span>Tarea 1 -</span> Filtrado y redireccionamiento</strong>
-    <br>
-    <p class="code-block">
-      <span class="code-block__command">grep</span>
-      <span class="code-block__text">"error"</span>
-      <span>/var/log/syslog</span>
-      <span class="code-block__symbol">></span>
-      <span>errores.log</span>
-    </p>
-    <br>
-    <strong class="subtitle"><span>Tarea 2 -</span> Procedimiento con Pipelines</strong>
-    <br>
-    <p class="code-block">
-      <span class="code-block__command">cat</span>
-      <span>errores.log</span>
-      <span class="code-block__symbol">|</span>
-      <span class="code-block__command">wc -l</span>
-    </p>
-    <br>
-    <strong class="subtitle"><span>Tarea 3 -</span> Orden y filtrado avanzado</strong>
-    <br>
-    <p class="code-block">
-      <span class="code-block__command">grep</span>
-      <span class="code-block__text">"fecha_actual"</span>
-      <span>errores.log</span>
-      <span class="code-block__symbol">|</span>
-      <span class="code-block__command">sort</span>
-      <span class="code-block__symbol">></span>
-      <span>errores_ordenados.log</span>
-    </p>
-    <img src="images/captura_1.png" alt="Captura de una terminal de Linux con líneas de comandos.">
-    <br>
-    <div class="reflexion">
-      <strong id="ref1" class="reflexion__title">Reflexión</strong>
-      <br>
-      <strong>1. ¿Qué comando fue más útil para esta tarea?</strong>
-      <p>El comando más útil fue <b>grep</b>. Nos permitió filtrar rápidamente los datos.</p>
-      <br>
-      <strong>2. ¿Cómo facilita el redireccionamiento y el uso de pipelines el procesamiento de datos en logs grandes?</strong>
-      <p>Facilita de una manera abismal. Evita crear multiples archivos temporales y todo el procesamiento se puede hacer en una sola línea de código, tan solo con escribir un carárter más.</p>
-    </div>
-    <br>
-    <!-- page 2 -->
-    <h1 id="act2">ACTIVIDAD 2</h1>
-    <br>
-    <strong class="subtitle"><span>Tarea 1 -</span> Actualización de la lista de paquetes</strong>
-    <br>
-    <p class="code-block">
-      <span class="code-block__command">sudo</span>
-      <span>apt</span>
-      <span class="code-block__command">update</span>
-    </p>
-    <img src="images/captura_2.png" alt="Captura de una terminal de Linux con líneas de comandos.">
-    <p class="code-block">
-      <span class="code-block__comment"># Como hay paquetes por actualizar</span>
-      <br>
-      <span class="code-block__command">sudo</span>
-      <span>apt</span>
-      <span class="code-block__command">upgrade</span>
-    </p>
-    <img src="images/captura_3.png" alt="Captura de una terminal de Linux con líneas de comandos.">
-    <br>
-    <br>
-    <br>
-    <strong class="subtitle"><span>Tarea 2 -</span> Instalación de paquetes</strong>
-    <p class="code-block">
-      <span class="code-block__command">sudo</span>
-      <span>apt</span>
-      <span class="code-block__command">install</span>
-      <span>vim</span>
-    </p>
-    <img src="images/captura_4.png" alt="Captura de una terminal de Linux con líneas de comandos.">
-    <p class="code-block">
-      <span>vim</span>
-      <span class="code-block__command">--version</span>
-      <span class="code-block__comment"># verificar instalación</span>
-    </p>
-    <img src="images/captura_5.png" alt="Captura de una terminal de Linux con líneas de comandos.">
-    <br>
-    <br>
-    <br>
-    <strong class="subtitle"><span>Tarea 3 -</span> Eliminacón de paquetes</strong>
-    <br>
-    <p class="code-block">
-      <span class="code-block__command">sudo</span>
-      <span>apt</span>
-      <span class="code-block__command">remove</span>
-      <span>vim</span>
-    </p>
-    <img src="images/captura_6.png" alt="Captura de una terminal de Linux con líneas de comandos.">
-    <p class="code-block">
-      <span class="code-block__comment"># Borramos el paquete innecesario</span>
-      <br>
-      <span class="code-block__command">sudo</span>
-      <span>apt</span>
-      <span class="code-block__command">autoremove</span>
-    </p>
-    <img src="images/captura_7.png" alt="Captura de una terminal de Linux con líneas de comandos.">
-    <br>
-    <br>
-    <br>
-    <strong class="subtitle"><span>Tarea 4 -</span> Instalación de herramientas específicas</strong>
-    <br>
-    <p class="code-block">
-      <span>apt</span>
-      <span class="code-block__command">install</span>
-      <span>curl</span>
-      <span class="code-block__command">curl -0</span>
-      <span>http://ejemplo.com/archivo.txt</span>
-    </p>
-    <br>
-    <div class="reflexion">
-      <strong id="ref2" class="reflexion__title">Reflexión</strong>
-      <br>
-      <strong>1. ¿Por qué es importante actualizar una lista de paquetes antes de una instalación?</strong>
-      <br>
-      <p>Para mantener el sistema actualizado y seguro, evitar errores con la instalación y porque así nos puede funcionar mejor.</p>
-      <br>
-      <strong>2. ¿Qué ventajas tiene desinstalar paquetes innecesarios del sistema?</strong>
-      <br>
-      <p>Nos ahorra espacio, nos mantiene libre de posibles amenazas y mantiene limpio nuestro sistema.</p>
-    </div>
-    <h1 id="act2">OTROS COMANDOS</h1>
-    <br>
-    <h2 class="subtitle"><span>Alternativas a </span>Grep</h2>
-    <br>
-    <strong class="subtitle">awk</strong>
-    <p class="text">Funciona tal cual que grep. Pero además puede filtrar, formatear y procesar columnas.<br>Recibe como argumento la palabra o patrón que deseas buscar entre medio de barras inclinadas "/".</p>
-    <p class="code-block">
-      <span class="code-block__command">awk</span>
-      <span class="code-block__text">"/Ana/"</span>
-      <span>usuarios.txt</span>
-    </p>
-    <p class="text">Puedes filtar por columnas utilizando '{print $1}' como argumento.<br>Puede ser '{print $2}' para la segunda columna (palabra) de cada línea y así sucesivamente.</p>
-    <p class="code-block">
-      <span class="code-block__command">awk</span>
-      <span class="code-block__text">'{print $1}'</span>
-      <span>usuarios.txt</span>
-    </p>
-    <img src="images/captura_8.png" alt="Captura de una terminal de Linux con líneas de comandos.">
-    <br>
-    <br>
-    <br>
-  </main>
-  <aside>
-    <nav>
-      <a href="#act1">Actividad 1</a>
-      <ul>
-        <li><a href="#ref1">Reflexión</a></li>
-      </ul>
-      <br>
-      <a href="#act2">Actividad 2</a>
-      <ul>
-        <li><a href="#ref2">Reflexión</a></li>
-      </ul>
-    </nav>
-  </aside>
 </body>
-
 </html>
